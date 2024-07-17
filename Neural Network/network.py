@@ -27,8 +27,8 @@ class Network(object):
         for j in range(epochs): #epochs 30 
             random.shuffle(training_data) #shuffle training data
             mini_batches = [ # create a mini batch
-                training_data[k:k+mini_batch_size] #mini batch size is 10 
-                for k in range(0, n, mini_batch_size)] #every 10 
+                training_data[k:k+mini_batch_size] 
+                for k in range(0, n, mini_batch_size)]
             for mini_batch in mini_batches: #run 50 000 times
                 self.update_mini_batch(mini_batch, eta) #for each minibatch
             if test_data:
@@ -76,7 +76,7 @@ class Network(object):
 
     def evaluate(self, test_data):
         test_results = [(np.argmax(self.feedforward(x)), y)
-                        for (x, y) in test_data] #Finds the index of whiever neuron in the final layer has the highest activation
+                        for (x, y) in test_data] #Finds the index of whichever neuron in the final layer that has the highest activation
         return sum(int(x == y) for (x, y) in test_results)#Sums the number of numbers they guessed correctly
     
 
